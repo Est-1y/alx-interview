@@ -6,24 +6,18 @@ Returning a list of integers representing Pascal's triangle
 
 
 def pascal_triangle(n):
-    """returns a list of numbers"""
+    """
+    Returns a list of numbers
+    """
+    m = []
     if n <= 0:
-        return []
-
-    pascal_triangle = [0] * n
-
-    for i in range(n):
-        # defining row
-        new_row = [0] * (i+1)
-        new_row[0] = 1
-        new_row[len(new_row) - 1] = 1
-
-        for j in range(1, i):
-            if j > 0 and j < len(new_row):
-                a = pascal_triangle[i - 1][j]
-                b = pascal_triangle[i - 1][j - 1]
-                new_row[j] = a + b
-
-        pascal_triangle[i] = new_row
-
-    return pascal_triangle
+        return m
+    m = [[1]]
+    for i in range(1, n):
+        temp = [1]
+        for k in range(len(m[i - 1]) - 1):
+            curr = m[i - 1]
+            temp.append(m[i - 1][k] + m[i - 1][j + 1])
+        temp.append(1)
+        m.append(temp)
+    return m
