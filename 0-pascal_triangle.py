@@ -1,13 +1,13 @@
 #!/usr/bin/python3
 
 """
-pascal's triangle
+a pascal triangle
 """
 
 
 def pascal_triangle(n):
     """
-    returning a lists of integers.
+    Returning a lists of integers
     """
     if n <= 0:
         return []
